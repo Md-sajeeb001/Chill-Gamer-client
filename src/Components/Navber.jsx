@@ -74,18 +74,26 @@ const Navber = () => {
 
       <div className="navbar-end">
         {user ? (
-          <button onClick={handelLogOut}>
-            <Link className="btn">Log Out</Link>
-          </button>
+          <div className="flex items-center gap-3">
+            <img
+              className="w-12 rounded-full"
+              src={user.photoURL}
+              alt="userImage"
+              title={user.displayName}
+            />
+            <button onClick={handelLogOut}>
+              <Link className="btn">Log Out</Link>
+            </button>
+          </div>
         ) : (
-          <div>
+          <div className="space-x-4">
             <button>
-              <Link to="/signup" className="btn">
+              <Link to="/signup" className="btn text-white">
                 Sign Up
               </Link>
             </button>
             <button>
-              <Link to="/signin" className="btn">
+              <Link to="/signin" className="btn text-white">
                 Sign in
               </Link>
             </button>

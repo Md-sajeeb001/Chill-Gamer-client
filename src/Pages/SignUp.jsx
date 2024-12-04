@@ -7,7 +7,7 @@ import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [showPass, setShowPass] = useState(false);
@@ -20,8 +20,8 @@ const SignUp = () => {
     const photo = e.target.photo.value;
     const password = e.target.password.value;
     const checkbox = e.target.checkbox.checked;
-    const newUser = { name, email, photo, password, checkbox };
-    console.log(newUser);
+    // const newUser = { name, email, photo, password, checkbox };
+    // console.log(newUser);
 
     const checkCase = /^(?=.*[a-z])(?=.*[A-Z]).*$/;
     if (!checkCase.test(password)) {
@@ -53,9 +53,31 @@ const SignUp = () => {
       return;
     }
 
+    if (!checkbox) {
+      toast.error("accept our terms and condition!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      return;
+    }
+
     createUser(email, password)
       .then((res) => {
-        console.log(res.user)
+        console.log(res.user);
+
+        updateUser({ displayName: name, photoURL: photo })
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((error) => {
+            console.log(error.message);
+          });
         if (res.user) {
           Swal.fire({
             title: "Success",
@@ -123,7 +145,7 @@ const SignUp = () => {
             required
           />
           <button
-          type="button"
+            type="button"
             onClick={() => setShowPass(!showPass)}
             className="absolute right-8 top-12 text-2xl "
           >
