@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 
 const HighestRatedCard = ({ data }) => {
-  console.log(data);
   const { description, rating, publishing, select, thumbnail, Gamename } = data;
   return (
     <div className="card card-compact bg-base-100  shadow-xl">

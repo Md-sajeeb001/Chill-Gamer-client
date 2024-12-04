@@ -1,7 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProviders";
 
 const Navber = () => {
+  const { user, signOutUser } = useContext(AuthContext);
+
   const links = (
     <>
       <li>
@@ -21,6 +25,16 @@ const Navber = () => {
       </li>
     </>
   );
+
+  const handelLogOut = () => {
+    signOutUser()
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
     <div className="navbar bg-base-100 px-8 py-4 border-b ">
@@ -57,8 +71,26 @@ const Navber = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
+
       <div className="navbar-end">
-        <a className="btn">Sign Up</a>
+        {user ? (
+          <button onClick={handelLogOut}>
+            <Link className="btn">Log Out</Link>
+          </button>
+        ) : (
+          <div>
+            <button>
+              <Link to="/signup" className="btn">
+                Sign Up
+              </Link>
+            </button>
+            <button>
+              <Link to="/signin" className="btn">
+                Sign in
+              </Link>
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ const AllCard = ({ data }) => {
   const { _id, description, thumbnail, Gamename } = data;
 
   return (
-    <div className="card bg-base-100 w-60 shadow-xl">
+    <div className="card bg-base-100  shadow-xl">
       <figure className="px-4 pt-4 w-full h-[150px]">
         <img src={thumbnail} alt="game" className="w-full h-full object-con" />
       </figure>
