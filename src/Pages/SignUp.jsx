@@ -53,6 +53,21 @@ const SignUp = () => {
       return;
     }
 
+    const passwordInNum = /^(?=.*\d).+$/;
+    if (!passwordInNum.test(password)) {
+      toast.error("password must be have a number", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      return;
+    }
+
     if (!checkbox) {
       toast.error("accept our terms and condition!", {
         position: "top-center",
@@ -69,8 +84,6 @@ const SignUp = () => {
 
     createUser(email, password)
       .then((res) => {
-        console.log(res.user);
-
         updateUser({ displayName: name, photoURL: photo })
           .then((res) => {
             console.log(res);
@@ -89,7 +102,19 @@ const SignUp = () => {
         }
       })
       .catch((error) => {
-        console.log(error.message);
+        if (error) {
+          toast.error("invalid credential!", {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+          return;
+        }
       });
   };
 

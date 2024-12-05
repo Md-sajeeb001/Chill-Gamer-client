@@ -20,39 +20,54 @@ const SignIn = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const checkCase = /^(?=.*[a-z])(?=.*[A-Z]).*$/;
-    if (!checkCase.test(password)) {
-      toast.error("password must be upper case and lower case!", {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-      return;
-    }
+    // const checkCase = /^(?=.*[a-z])(?=.*[A-Z]).*$/;
+    // if (!checkCase.test(password)) {
+    //   toast.error("password must be upper case and lower case!", {
+    //     position: "top-center",
+    //     autoClose: 3000,
+    //     hideProgressBar: true,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //     theme: "colored",
+    //   });
+    //   return;
+    // }
 
-    const passwordValidation = /^.{6,}$/;
-    if (!passwordValidation.test(password)) {
-      toast.error("password must be at least 6 character!", {
-        position: "top-center",
-        autoClose: 3000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-      return;
-    }
+    // const passwordValidation = /^.{6,}$/;
+    // if (!passwordValidation.test(password)) {
+    //   toast.error("password must be at least 6 character!", {
+    //     position: "top-center",
+    //     autoClose: 3000,
+    //     hideProgressBar: true,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //     theme: "colored",
+    //   });
+    //   return;
+    // }
+
+    // const passwordInNum = /^(?=.*\d).+$/;
+    // if(!passwordInNum.test(password)){
+    //   toast.error("password must be have a number", {
+    //     position: "top-center",
+    //     autoClose: 3000,
+    //     hideProgressBar: true,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //     theme: "colored",
+    //   });
+    //   return;
+    // }
+
 
     loginUser(email, password)
       .then((res) => {
-        console.log(res.user)
         if (res.user) {
           Swal.fire({
             title: "Success",
@@ -64,7 +79,19 @@ const SignIn = () => {
         }
       })
       .catch((error) => {
-        console.log(error.message);
+        if(error){
+          toast.error("invalid credential!", {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+          return;
+        }
       });
   };
 
@@ -72,6 +99,7 @@ const SignIn = () => {
     <div className="card bg-base-100 w-full max-w-2xl mx-auto shrink-0 shadow-2xl">
       <h2 className="text-3xl font-bold text-center pt-4">SignIn Now!</h2>
       <form onSubmit={handelSignIn} className="card-body">
+        
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
@@ -104,6 +132,7 @@ const SignIn = () => {
             {showPass ? <FaRegEyeSlash></FaRegEyeSlash> : <FaRegEye></FaRegEye>}
           </button>
         </div>
+
         <label className="label">
           <Link href="#" className="label-text-alt link link-hover">
             Forgot password?

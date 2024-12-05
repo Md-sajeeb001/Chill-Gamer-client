@@ -6,6 +6,8 @@ import AllReview from "../Pages/AllReview";
 import ReviewDetails from "../Pages/ReviewDetails";
 import SignUp from "../Pages/SignUp";
 import SignIn from "../Pages/SignIn";
+import Private from "../Private/Private";
+import MyReview from "../Pages/MyReview";
 
 const router = createBrowserRouter([
   {
@@ -19,18 +21,39 @@ const router = createBrowserRouter([
       },
       {
         path: "/addReview",
-        element: <AddReview></AddReview>,
+        element: (
+          <Private>
+            <AddReview></AddReview>
+          </Private>
+        ),
       },
       {
         path: "/allReviews",
-        element: <AllReview></AllReview>,
+        element: (
+          <Private>
+            <AllReview></AllReview>
+          </Private>
+        ),
         loader: () => fetch("http://localhost:5000/gameReviews"),
       },
       {
         path: "/reviewDetails/:id",
-        element: <ReviewDetails></ReviewDetails>,
+        element: (
+          <Private>
+            <ReviewDetails></ReviewDetails>
+          </Private>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/gameReviews/${params.id}`),
+      },
+      {
+        path: "/myReviews",
+        element: (
+          <Private>
+            <MyReview></MyReview>
+          </Private>
+        ),
+        loader: () => fetch("http://localhost:5000/gameReviews"),
       },
       {
         path: "/signup",

@@ -7,16 +7,16 @@ const AllCard = ({ data }) => {
   return (
     <div className="card bg-base-100  shadow-xl">
       <figure className="px-4 pt-4 w-full h-[150px]">
-        <img src={thumbnail} alt="game" className="w-full h-full object-con" />
+        <img src={thumbnail} alt="game" className="w-full h-full rounded-lg" />
       </figure>
-      <div className="px-4 py-4 space-y-2 flex flex-col">
+      <div className="px-4 py-4 space-y-3 flex flex-col">
         <h2 className="card-title">{Gamename}</h2>
-        <p>{description}</p>
+        <p className="text-sm text-slate-400">{description}</p>
         <div className="card-actions">
           <Link to={`/reviewDetails/${_id}`}
             className="btn bg-white text-black hover:text-white"
           >
-            Explore Detail
+            Explore Details
           </Link>
         </div>
       </div>

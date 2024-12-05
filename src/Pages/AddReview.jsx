@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Providers/AuthProviders";
 
 const AddReview = () => {
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+  const { email, displayName } = user;
 
   const handelAddReview = (e) => {
     e.preventDefault();
@@ -65,6 +69,7 @@ const AddReview = () => {
                 <span className="label-text">Name</span>
               </label>
               <input
+                defaultValue={displayName}
                 name="name"
                 type="name"
                 placeholder="name"
@@ -77,6 +82,7 @@ const AddReview = () => {
                 <span className="label-text">Email</span>
               </label>
               <input
+                defaultValue={email}
                 name="email"
                 type="email"
                 placeholder="email"

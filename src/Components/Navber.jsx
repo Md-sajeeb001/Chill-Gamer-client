@@ -1,10 +1,12 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProviders";
+import { toast } from "react-toastify";
 
 const Navber = () => {
   const { user, signOutUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const links = (
     <>
@@ -29,15 +31,29 @@ const Navber = () => {
   const handelLogOut = () => {
     signOutUser()
       .then((res) => {
-        console.log(res);
+        if (res) {
+          navigate("/");
+        }
       })
       .catch((error) => {
-        console.log(error.message);
+        if (error) {
+          toast.error("invalid credential!", {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+          return;
+        }
       });
   };
 
   return (
-    <div className="navbar bg-base-100 px-8 py-4 border-b ">
+    <div className="navbar bg-base-100 sm:px-8 px-3 py-4 border-b ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -65,7 +81,7 @@ const Navber = () => {
         </div>
         <Link className="flex items-center gap-2" to="/">
           <img className="w-12" src={logo} alt="" />
-          <h2 className="text-xl font-semiboldbold">Chill Gamer</h2>
+          <h2 className="sm:text-xl sm:font-semibold">Chill Gamer</h2>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">

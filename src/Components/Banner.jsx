@@ -8,7 +8,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 const Banner = () => {
   return (
-    <div className="carousel h-screen w-full">
+    <div className="carousel sm:h-screen w-full">
       <div id="slide1" className="carousel-item relative w-full">
         <img src={imgOne} className="w-full" />
         <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
