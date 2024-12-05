@@ -5,9 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 
 const SignUp = () => {
-  const { createUser, updateUser } = useContext(AuthContext);
+  const { createUser, updateUser, Provider } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [showPass, setShowPass] = useState(false);
@@ -118,6 +119,16 @@ const SignUp = () => {
       });
   };
 
+  const handelSignGoogle = () => {
+    Provider()
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((data) => {
+        console.log(data);
+      });
+  };
+
   return (
     <div className="card bg-base-100 w-full max-w-2xl mx-auto shrink-0 shadow-2xl">
       <h2 className="text-3xl font-bold text-center pt-4">SignUp Now!</h2>
@@ -183,8 +194,19 @@ const SignUp = () => {
             <span className="label-text">accept terms and condition</span>
           </label>
         </div>
-        <div className="form-control mt-6">
+        <div className="form-control mt-6 space-y-3">
           <button className="btn btn-primary">Sign Up or Register</button>
+          <div className="w-1/2">
+            <button
+              onClick={handelSignGoogle}
+              className="w-full btn bg-white text-black hover:text-white"
+            >
+              <span className="text-xl">
+                <FcGoogle></FcGoogle>
+              </span>{" "}
+              Sign Up With Google
+            </button>
+          </div>
         </div>
         <p className="text-center py-5">
           Already Have An Account?{" "}
