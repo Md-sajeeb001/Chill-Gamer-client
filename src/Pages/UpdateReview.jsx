@@ -1,7 +1,14 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
+
 const UpdateReview = () => {
+  const [startDate, setStartDate] = useState(new Date());
+
   const navigate = useNavigate();
   const dbData = useLoaderData();
   const {
@@ -75,6 +82,7 @@ const UpdateReview = () => {
             </label>
             <input
               defaultValue={name}
+              readOnly={name}
               name="name"
               type="name"
               placeholder="name"
@@ -88,6 +96,7 @@ const UpdateReview = () => {
             </label>
             <input
               defaultValue={email}
+              readOnly={email}
               name="email"
               type="email"
               placeholder="email"
@@ -98,19 +107,6 @@ const UpdateReview = () => {
         </div>
         {/* row 2 */}
         <div className="flex items-center gap-4">
-          <div className="form-control w-1/2">
-            <label className="label">
-              <span className="label-text">Description </span>
-            </label>
-            <input
-              defaultValue={description}
-              name="description"
-              type="description "
-              placeholder="description "
-              className="input input-bordered w-full"
-              required
-            />
-          </div>
           <div className="form-control w-1/2">
             <label className="label">
               <span className="label-text">Rating</span>
@@ -124,6 +120,19 @@ const UpdateReview = () => {
               required
             />
           </div>
+          <div className="form-control w-1/2">
+            <label className="label">
+              <span className="label-text">Game Name</span>
+            </label>
+            <input
+              defaultValue={Gamename}
+              name="Gamename"
+              type="Gamename"
+              placeholder="Gamename"
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
         </div>
         {/* row 3 */}
         <div className="flex items-center gap-4">
@@ -131,13 +140,15 @@ const UpdateReview = () => {
             <label className="label">
               <span className="label-text">Publishing year</span>
             </label>
-            <input
+            <DatePicker
               defaultValue={publishing}
               name="publishing"
               type="Publishing "
               placeholder="Publishing"
               className="input input-bordered w-full"
               required
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
             />
           </div>
           <div className="form-control w-1/2">
@@ -158,7 +169,7 @@ const UpdateReview = () => {
         </div>
         {/* row 4 */}
         <div className="flex items-center gap-4">
-          <div className="form-control w-1/2">
+          <div className="form-control w-full">
             <label className="label">
               <span className="label-text">Thumbnail Url</span>
             </label>
@@ -171,19 +182,19 @@ const UpdateReview = () => {
               required
             />
           </div>
-          <div className="form-control w-1/2">
-            <label className="label">
-              <span className="label-text">Game Name</span>
-            </label>
-            <input
-              defaultValue={Gamename}
-              name="Gamename"
-              type="Gamename"
-              placeholder="Gamename"
-              className="input input-bordered w-full"
-              required
-            />
-          </div>
+        </div>
+        <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text">Description </span>
+          </label>
+          <textarea
+            defaultValue={description}
+            name="description"
+            type="description "
+            placeholder="description "
+            className="input input-bordered w-full"
+            required
+          />
         </div>
 
         <div className="form-control w-full mt-6">

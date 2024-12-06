@@ -76,6 +76,7 @@ const AddReview = () => {
             </label>
             <input
               defaultValue={displayName}
+              readOnly={displayName}
               name="name"
               type="name"
               placeholder="name"
@@ -89,6 +90,7 @@ const AddReview = () => {
             </label>
             <input
               defaultValue={email}
+              readOnly={email}
               name="email"
               type="email"
               placeholder="email"
