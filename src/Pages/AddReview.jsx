@@ -3,10 +3,17 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Providers/AuthProviders";
 
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
+
 const AddReview = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const { email, displayName } = user;
+
+  const [startDate, setStartDate] = useState(new Date());
 
   const handelAddReview = (e) => {
     e.preventDefault();
@@ -94,16 +101,17 @@ const AddReview = () => {
         <div className="flex items-center gap-4">
           <div className="form-control w-1/2">
             <label className="label">
-              <span className="label-text">Description </span>
+              <span className="label-text">Game Name</span>
             </label>
             <input
-              name="description"
-              type="description "
-              placeholder="description "
+              name="Gamename"
+              type="Gamename"
+              placeholder="Gamename"
               className="input input-bordered w-full"
               required
             />
           </div>
+
           <div className="form-control w-1/2">
             <label className="label">
               <span className="label-text">Rating</span>
@@ -123,14 +131,17 @@ const AddReview = () => {
             <label className="label">
               <span className="label-text">Publishing year</span>
             </label>
-            <input
+            <DatePicker
               name="publishing"
               type="Publishing "
               placeholder="Publishing"
               className="input input-bordered w-full"
               required
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
             />
           </div>
+
           <div className="form-control w-1/2">
             <label className="label">
               <span className="label-text">Genres</span>
@@ -145,7 +156,7 @@ const AddReview = () => {
         </div>
         {/* row 4 */}
         <div className="flex items-center gap-4">
-          <div className="form-control w-1/2">
+          <div className="form-control w-full">
             <label className="label">
               <span className="label-text">Thumbnail Url</span>
             </label>
@@ -157,18 +168,21 @@ const AddReview = () => {
               required
             />
           </div>
-          <div className="form-control w-1/2">
-            <label className="label">
-              <span className="label-text">Game Name</span>
-            </label>
-            <input
-              name="Gamename"
-              type="Gamename"
-              placeholder="Gamename"
-              className="input input-bordered w-full"
-              required
-            />
-          </div>
+        </div>
+        {/* row 5 */}
+        <div className="form-control w-full">
+          <label className="label">
+            <span className="label-text">Description </span>
+          </label>
+          <textarea
+            name="description"
+            type="text"
+            rows={50}
+            cols={50}
+            placeholder="description "
+            className="input input-bordered w-full"
+            required
+          />
         </div>
 
         <div className="form-control w-full mt-6">
