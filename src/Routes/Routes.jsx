@@ -8,6 +8,8 @@ import SignUp from "../Pages/SignUp";
 import SignIn from "../Pages/SignIn";
 import Private from "../Private/Private";
 import MyReview from "../Pages/MyReview";
+import UpdateReview from "../Pages/UpdateReview";
+import WishList from "../Pages/WatchList";
 
 const router = createBrowserRouter([
   {
@@ -29,11 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allReviews",
-        element: (
-          <Private>
-            <AllReview></AllReview>
-          </Private>
-        ),
+        element: <AllReview></AllReview>,
         loader: () => fetch("http://localhost:5000/gameReviews"),
       },
       {
@@ -54,6 +52,21 @@ const router = createBrowserRouter([
           </Private>
         ),
         loader: () => fetch("http://localhost:5000/gameReviews"),
+      },
+      {
+        path: "/updateReview/:id",
+        element: <UpdateReview></UpdateReview>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/gameReviews/${params.id}`),
+      },
+      {
+        path: "/myWatchlist",
+        element: (
+          <Private>
+            <WishList></WishList>
+          </Private>
+        ),
+        loader: () => fetch("http://localhost:5000/myWatchlist"),
       },
       {
         path: "/signup",

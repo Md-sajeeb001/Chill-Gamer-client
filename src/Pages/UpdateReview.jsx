@@ -1,14 +1,22 @@
-import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { AuthContext } from "../Providers/AuthProviders";
 
-const AddReview = () => {
+const UpdateReview = () => {
   const navigate = useNavigate();
-  const { user } = useContext(AuthContext);
-  const { email, displayName } = user;
+  const dbData = useLoaderData();
+  const {
+    _id,
+    thumbnail,
+    select,
+    rating,
+    publishing,
+    name,
+    email,
+    description,
+    Gamename,
+  } = dbData;
 
-  const handelAddReview = (e) => {
+  const handelUpdateReview = (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
@@ -31,10 +39,9 @@ const AddReview = () => {
       thumbnail,
       Gamename,
     };
-    console.log(newReview);
 
-    fetch("http://localhost:5000/gameReviews", {
-      method: "POST",
+    fetch(`http://localhost:5000/gameReviews/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -42,15 +49,14 @@ const AddReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount) {
           Swal.fire({
             title: "Success",
-            text: "Review added Successful",
+            text: "Review Update SuccessFully",
             icon: "success",
             confirmButtonText: "Cool",
           });
-          navigate("/");
+          navigate("/myReviews");
         }
       });
   };
@@ -58,9 +64,9 @@ const AddReview = () => {
   return (
     <div className="card bg-base-100 w-full max-w-4xl mx-auto shrink-0 shadow-2xl">
       <h2 className="text-3xl font-bold text-center pt-8 underline">
-        Add New Review
+        Update Review
       </h2>
-      <form onSubmit={handelAddReview} className="card-body">
+      <form onSubmit={handelUpdateReview} className="card-body">
         {/* row 1 */}
         <div className="flex items-center gap-4">
           <div className="form-control w-1/2">
@@ -68,7 +74,7 @@ const AddReview = () => {
               <span className="label-text">Name</span>
             </label>
             <input
-              defaultValue={displayName}
+              defaultValue={name}
               name="name"
               type="name"
               placeholder="name"
@@ -97,6 +103,7 @@ const AddReview = () => {
               <span className="label-text">Description </span>
             </label>
             <input
+              defaultValue={description}
               name="description"
               type="description "
               placeholder="description "
@@ -109,6 +116,7 @@ const AddReview = () => {
               <span className="label-text">Rating</span>
             </label>
             <input
+              defaultValue={rating}
               name="rating"
               type="rating"
               placeholder="rating"
@@ -124,6 +132,7 @@ const AddReview = () => {
               <span className="label-text">Publishing year</span>
             </label>
             <input
+              defaultValue={publishing}
               name="publishing"
               type="Publishing "
               placeholder="Publishing"
@@ -136,7 +145,11 @@ const AddReview = () => {
               <span className="label-text">Genres</span>
             </label>
 
-            <select name="select" className="input input-bordered w-full">
+            <select
+              name="select"
+              defaultValue={select}
+              className="input input-bordered w-full"
+            >
               <option>Adventure</option>
               <option>RPG (Role-Playing Game)</option>
               <option>Action</option>
@@ -150,6 +163,7 @@ const AddReview = () => {
               <span className="label-text">Thumbnail Url</span>
             </label>
             <input
+              defaultValue={thumbnail}
               name="thumbnail"
               type="Thumbnail"
               placeholder="Thumbnail Url"
@@ -162,6 +176,7 @@ const AddReview = () => {
               <span className="label-text">Game Name</span>
             </label>
             <input
+              defaultValue={Gamename}
               name="Gamename"
               type="Gamename"
               placeholder="Gamename"
@@ -173,7 +188,7 @@ const AddReview = () => {
 
         <div className="form-control w-full mt-6">
           <button className="btn bg-white text-black hover:text-white">
-            Submit
+            Update Review
           </button>
         </div>
       </form>
@@ -181,4 +196,4 @@ const AddReview = () => {
   );
 };
 
-export default AddReview;
+export default UpdateReview;

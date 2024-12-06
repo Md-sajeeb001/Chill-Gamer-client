@@ -3,30 +3,40 @@ import { MdOutlineStar } from "react-icons/md";
 import { GrUpdate } from "react-icons/gr";
 import { AiOutlineDelete } from "react-icons/ai";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const ReviewTabel = ({ data, setDatas, datas }) => {
   const { _id, Gamename, email, thumbnail, name, description, rating } = data;
 
   const handelRemove = (id) => {
-    console.log("delete game is", id);
-
-    fetch(`http://localhost:5000/gameReviews/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.deletedCount) {
-          Swal.fire({
-            title: "Success",
-            text: "Game Review Removed Successfully",
-            icon: "success",
-            confirmButtonText: "Cool",
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/gameReviews/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your Review Game has been deleted.",
+                icon: "success",
+              });
+            }
+            const remainingReviews = datas.filter((data) => data._id !== id);
+            setDatas(remainingReviews);
           });
-        }
-        const remainingReviews = datas.filter((data) => data._id !== id);
-        setDatas(remainingReviews);
-      });
+      }
+    });
   };
 
   return (
@@ -54,9 +64,12 @@ const ReviewTabel = ({ data, setDatas, datas }) => {
         <MdOutlineStar></MdOutlineStar>
       </td>
       <th>
-        <button className="btn btn-ghost btn-sm text-lg">
+        <Link
+          to={`/updateReview/${_id}`}
+          className="btn btn-ghost btn-sm text-lg"
+        >
           <GrUpdate></GrUpdate>
-        </button>
+        </Link>
         <button
           onClick={() => handelRemove(_id)}
           className="btn btn-ghost btn-sm text-xl"

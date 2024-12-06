@@ -1,36 +1,34 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProviders";
-import ReviewTabel from "../Components/ReviewTabel";
+import WatchListTabel from "../Components/WatchListTabel";
 
-const MyReview = () => {
+const WatchList = () => {
   const loderData = useLoaderData();
   const { user } = useContext(AuthContext);
-  const [datas, setDatas] = useState(loderData);
 
-  const emailData = datas?.filter((data) => data?.email == user?.email);
+  const WatchListData = loderData?.filter((data) => data?.email == user?.email);
 
   return (
-    <div className="">
+    <div>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
             <tr>
-              <th>Thumbnail</th>
-              <th>Email</th>
+              <th>Serial</th>
+              <th>Name</th>
+              <th>Game Name</th>
               <th>Rating</th>
-              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {emailData?.map((data) => (
-              <ReviewTabel
+            {WatchListData.map((data, index) => (
+              <WatchListTabel
                 key={data._id}
                 data={data}
-                datas={datas}
-                setDatas={setDatas}
-              ></ReviewTabel>
+                index={index}
+              ></WatchListTabel>
             ))}
           </tbody>
         </table>
@@ -39,4 +37,4 @@ const MyReview = () => {
   );
 };
 
-export default MyReview;
+export default WatchList;

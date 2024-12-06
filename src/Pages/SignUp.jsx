@@ -6,9 +6,10 @@ import { toast } from "react-toastify";
 import { FaRegEye } from "react-icons/fa";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { FaUser } from "react-icons/fa";
 
 const SignUp = () => {
-  const { createUser, updateUser, Provider } = useContext(AuthContext);
+  const { createUser, updateUser, signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [showPass, setShowPass] = useState(false);
@@ -21,8 +22,6 @@ const SignUp = () => {
     const photo = e.target.photo.value;
     const password = e.target.password.value;
     const checkbox = e.target.checkbox.checked;
-    // const newUser = { name, email, photo, password, checkbox };
-    // console.log(newUser);
 
     const checkCase = /^(?=.*[a-z])(?=.*[A-Z]).*$/;
     if (!checkCase.test(password)) {
@@ -120,12 +119,26 @@ const SignUp = () => {
   };
 
   const handelSignGoogle = () => {
-    Provider()
+    signInWithGoogle()
       .then((res) => {
-        console.log(res);
+        if (res.user) {
+          navigate("/");
+        }
       })
-      .catch((data) => {
-        console.log(data);
+      .catch((error) => {
+        if (error) {
+          toast.error("invalid credential!", {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+          return;
+        }
       });
   };
 
@@ -195,18 +208,18 @@ const SignUp = () => {
           </label>
         </div>
         <div className="form-control mt-6 space-y-3">
-          <button className="btn btn-primary">Sign Up or Register</button>
-          <div className="w-1/2">
-            <button
-              onClick={handelSignGoogle}
-              className="w-full btn bg-white text-black hover:text-white"
-            >
-              <span className="text-xl">
-                <FcGoogle></FcGoogle>
-              </span>{" "}
-              Sign Up With Google
-            </button>
-          </div>
+          <button className="btn bg-white text-black hover:text-white">
+            <FaUser></FaUser> Sign Up or Register
+          </button>
+          <button
+            onClick={handelSignGoogle}
+            className="btn w-full bg-white text-black hover:text-white"
+          >
+            <span className="text-xl">
+              <FcGoogle></FcGoogle>
+            </span>{" "}
+            Sign Up With Google
+          </button>
         </div>
         <p className="text-center py-5">
           Already Have An Account?{" "}

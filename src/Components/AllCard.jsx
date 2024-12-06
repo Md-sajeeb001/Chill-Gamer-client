@@ -14,7 +14,7 @@ const AllCard = ({ data }) => {
         <p className="text-sm text-slate-400">{description}</p>
         <div className="card-actions">
           <Link to={`/reviewDetails/${_id}`}
-            className="btn bg-white text-black hover:text-white"
+            className="btn bg-white text-black hover:text-white flex-grow"
           >
             Explore Details
           </Link>

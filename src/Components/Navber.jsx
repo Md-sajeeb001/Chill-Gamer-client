@@ -23,7 +23,7 @@ const Navber = () => {
         <NavLink to="/myReviews">My Reviews</NavLink>
       </li>
       <li>
-        <NavLink to="/watchlist">Game WatchList</NavLink>
+        <NavLink to="/myWatchlist">Game WatchList</NavLink>
       </li>
     </>
   );
