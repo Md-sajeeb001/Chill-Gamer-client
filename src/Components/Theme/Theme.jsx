@@ -4,7 +4,7 @@ const Theme = () => {
     if (e.target.checked) {
       document.querySelector("body").setAttribute("data-theme", "light");
     } else {
-        document.querySelector("body").setAttribute("data-theme", "dark");
+      document.querySelector("body").setAttribute("data-theme", "dark");
     }
   };
 

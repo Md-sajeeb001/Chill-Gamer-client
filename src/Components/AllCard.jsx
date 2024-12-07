@@ -12,10 +12,10 @@ const AllCard = ({ data }) => {
       </figure>
       <div className="px-4 py-4 space-y-3 flex flex-col">
         <h2 className="card-title">{Gamename}</h2>
-        <p className="text-sm text-slate-400">{description}</p>
-        <p className="text-sm text-slate-400 flex items-center gap-2">
+        <p style={{color: 'black'}} className="text-sm text-slate-400">{description}</p>
+        <p className="text-sm text-slate-500 flex items-center gap-2">
           <span>{rating}</span>
-          <span className="text-white">
+          <span className="">
             <MdOutlineStar></MdOutlineStar>
           </span>
         </p>

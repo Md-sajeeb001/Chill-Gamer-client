@@ -1,9 +1,10 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import logo from "../assets/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProviders";
 import { toast } from "react-toastify";
 import Theme from "./Theme/Theme";
+import Lottie from "lottie-react";
+import logo from "../Providers/logo.json";
 
 const Navber = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -81,42 +82,78 @@ const Navber = () => {
           </ul>
         </div>
         <Link className="flex items-center gap-2" to="/">
-          <img className="w-12" src={logo} alt="" />
+          {/* <img className="w-12" src={logo} alt="" /> */}
+          <div className="w-16">
+            <Lottie animationData={logo} />
+          </div>
           <h2 className="sm:text-xl sm:font-semibold">Chill Gamer</h2>
         </Link>
       </div>
+
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
 
       <div className="navbar-end">
         {user ? (
-          <div className="flex items-center gap-3">
-            <img
-              className="w-12 rounded-full"
-              src={user.photoURL}
-              alt="userImage"
-              title={user.displayName}
-            />
-            <button onClick={handelLogOut}>
-              <Link className="btn">Log Out</Link>
-            </button>
+          <div className="flex items-center sm:gap-3">
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img
+                    className="w-12 rounded-full"
+                    src={user.photoURL}
+                    alt="userImage"
+                    title={user.displayName}
+                  />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              >
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li>
+                  <a>Settings</a>
+                </li>
+                <li>
+                  <button className="" onClick={handelLogOut}>
+                    <Link className="">Log Out</Link>
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <button className="sm:block hidden" onClick={handelLogOut}>
+                <Link className="btn">Log Out</Link>
+              </button>
+            </div>
           </div>
         ) : (
           <div className="space-x-4">
             <button>
-              <Link to="/signup" className="btn text-white">
+              <Link to="/signup" className="btn ">
                 Sign Up
               </Link>
             </button>
             <button>
-              <Link to="/signin" className="btn text-white">
+              <Link to="/signin" className="btn ">
                 Sign in
               </Link>
             </button>
           </div>
         )}
       </div>
+
       <div className="ml-4">
         <Theme></Theme>
       </div>
