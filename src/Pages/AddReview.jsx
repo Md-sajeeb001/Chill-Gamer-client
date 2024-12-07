@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Providers/AuthProviders";
-
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 
