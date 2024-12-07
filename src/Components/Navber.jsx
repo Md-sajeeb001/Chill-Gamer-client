@@ -3,6 +3,7 @@ import logo from "../assets/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProviders";
 import { toast } from "react-toastify";
+import Theme from "./Theme/Theme";
 
 const Navber = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -115,6 +116,9 @@ const Navber = () => {
             </button>
           </div>
         )}
+      </div>
+      <div className="ml-4">
+        <Theme></Theme>
       </div>
     </div>
   );
