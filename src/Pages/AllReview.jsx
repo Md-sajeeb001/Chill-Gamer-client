@@ -9,19 +9,7 @@ const AllReview = () => {
 
   const [sort, setSort] = useState("");
 
-  const handelSort = (sort) => {
-    setSort(sort);
-
-    if (sort === "Rating") {
-      const sortRating = [...loderData].sort((a, b) => b.rating - a.rating);
-      setReviews(sortRating);
-    }
-
-    if (sort === "publishing") {
-      const sortPublishing = [...loderData].sort();
-      setReviews(sortPublishing);
-    }
-  };
+ 
 
   return (
     <div>

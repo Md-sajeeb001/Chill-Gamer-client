@@ -20,7 +20,7 @@ const AllCard = ({ data }) => {
           </span>
         </p>
         <p className="text-sm text-slate-400">Publishing: {publishing}</p>
-        <div className="card-actions">
+        <div className="card-actions flex-grow">
           <Link
             to={`/reviewDetails/${_id}`}
             className="btn bg-white text-black hover:text-white flex-grow"
