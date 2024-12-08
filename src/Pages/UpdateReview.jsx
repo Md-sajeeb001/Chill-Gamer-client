@@ -47,7 +47,7 @@ const UpdateReview = () => {
       Gamename,
     };
 
-    fetch(`http://localhost:5000/gameReviews/${_id}`, {
+    fetch(`https://chill-gamer-server-zeta-liart.vercel.app/gameReviews/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

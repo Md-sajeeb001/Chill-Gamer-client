@@ -19,7 +19,7 @@ const ReviewTabel = ({ data, setDatas, datas }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/gameReviews/${id}`, {
+        fetch(`https://chill-gamer-server-zeta-liart.vercel.app/gameReviews/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

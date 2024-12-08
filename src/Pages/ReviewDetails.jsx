@@ -25,7 +25,7 @@ const ReviewDetails = () => {
   };
 
   const handelAddWishList = () => {
-    fetch("http://localhost:5000/myWatchlist", {
+    fetch("https://chill-gamer-server-zeta-liart.vercel.app/myWatchlist", {
       method: "POST",
       headers: {
         "content-type": "application/json",

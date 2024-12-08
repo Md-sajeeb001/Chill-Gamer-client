@@ -39,7 +39,7 @@ const AddReview = () => {
     };
     console.log(newReview);
 
-    fetch("http://localhost:5000/gameReviews", {
+    fetch("https://chill-gamer-server-zeta-liart.vercel.app/gameReviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
