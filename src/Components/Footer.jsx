@@ -4,7 +4,7 @@ import logo from "../Providers/logo.json";
 
 const Footer = () => {
   return (
-    <div className="border-t bordewr bg-[#1d232a]">
+    <div className="border-t bordewr ">
       <footer className="footer text-base-content p-10">
         <nav>
           <h6 className="footer-title">Services</h6>
