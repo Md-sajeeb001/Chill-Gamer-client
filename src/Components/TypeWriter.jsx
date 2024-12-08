@@ -5,7 +5,7 @@ const TypeWriter = () => {
       <h1 style={{ margin: "auto 0", fontWeight: "normal" }}>
         <span style={{ color: "red", fontWeight: "bold" }}>
           <Typewriter
-            words={["Highest Rated Game"]}
+            words={["HIGHEST RATED GAME"]}
             loop={5}
             cursor
             cursorStyle="_"
