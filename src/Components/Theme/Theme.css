@@ -3,7 +3,7 @@
   --titel: white;
 }
 [data-theme="light"] {
-  --body-background: white;
+  --body-background: black;
   --titel: black;
 }
 
