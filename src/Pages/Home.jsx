@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Banner from "../Components/Banner";
 import HighestRated from "../Components/HighestRated";
 import TrendingMatch from "../Components/TrendingMatch";
+import Welcome from "../Components/Welcome";
 
 const Home = () => {
   const lodedData = useLoaderData();
@@ -16,6 +17,9 @@ const Home = () => {
       </div>
       <div>
         <TrendingMatch></TrendingMatch>
+      </div>
+      <div className="pt-16 pb-8">
+        <Welcome></Welcome>
       </div>
     </div>
   );
