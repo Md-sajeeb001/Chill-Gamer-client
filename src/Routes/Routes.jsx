@@ -11,6 +11,7 @@ import MyReview from "../Pages/MyReview";
 import UpdateReview from "../Pages/UpdateReview";
 import WishList from "../Pages/WatchList";
 import Error from "../Pages/Error";
+import BlogDetails from "../Components/BlogDetails";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("https://chill-gamer-server-zeta-liart.vercel.app/gameReviews"),
+        loader: () =>
+          fetch("https://chill-gamer-server-zeta-liart.vercel.app/gameReviews"),
       },
       {
         path: "/addReview",
@@ -34,7 +36,8 @@ const router = createBrowserRouter([
       {
         path: "/allReviews",
         element: <AllReview></AllReview>,
-        loader: () => fetch("https://chill-gamer-server-zeta-liart.vercel.app/gameReviews"),
+        loader: () =>
+          fetch("https://chill-gamer-server-zeta-liart.vercel.app/gameReviews"),
       },
       {
         path: "/reviewDetails/:id",
@@ -44,7 +47,9 @@ const router = createBrowserRouter([
           </Private>
         ),
         loader: ({ params }) =>
-          fetch(`https://chill-gamer-server-zeta-liart.vercel.app/gameReviews/${params.id}`),
+          fetch(
+            `https://chill-gamer-server-zeta-liart.vercel.app/gameReviews/${params.id}`
+          ),
       },
       {
         path: "/myReviews",
@@ -53,13 +58,16 @@ const router = createBrowserRouter([
             <MyReview></MyReview>
           </Private>
         ),
-        loader: () => fetch("https://chill-gamer-server-zeta-liart.vercel.app/gameReviews"),
+        loader: () =>
+          fetch("https://chill-gamer-server-zeta-liart.vercel.app/gameReviews"),
       },
       {
         path: "/updateReview/:id",
         element: <UpdateReview></UpdateReview>,
         loader: ({ params }) =>
-          fetch(`https://chill-gamer-server-zeta-liart.vercel.app/gameReviews/${params.id}`),
+          fetch(
+            `https://chill-gamer-server-zeta-liart.vercel.app/gameReviews/${params.id}`
+          ),
       },
       {
         path: "/myWatchlist",
@@ -68,7 +76,12 @@ const router = createBrowserRouter([
             <WishList></WishList>
           </Private>
         ),
-        loader: () => fetch("https://chill-gamer-server-zeta-liart.vercel.app/myWatchlist"),
+        loader: () =>
+          fetch("https://chill-gamer-server-zeta-liart.vercel.app/myWatchlist"),
+      },
+      {
+        path: "/blogDetails/:id",
+        element: <BlogDetails></BlogDetails>,
       },
       {
         path: "/signup",

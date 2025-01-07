@@ -4,6 +4,7 @@ import HighestRated from "../Components/HighestRated";
 import TrendingMatch from "../Components/TrendingMatch";
 import Welcome from "../Components/Welcome";
 import About from "../Components/About";
+import Blogs from "./Blogs";
 
 const Home = () => {
   const lodedData = useLoaderData();
@@ -13,7 +14,7 @@ const Home = () => {
       <div>
         <Banner></Banner>
       </div>
-      <div className="container mx-auto">
+      <div className="sm:container mx-auto lg:px-0 px-6">
         <div>
           <HighestRated lodedData={lodedData}></HighestRated>
         </div>
@@ -22,6 +23,9 @@ const Home = () => {
         </div>
         <div>
           <About></About>
+        </div>
+        <div>
+          <Blogs></Blogs>
         </div>
         <div className="pt-16 pb-8">
           <Welcome></Welcome>

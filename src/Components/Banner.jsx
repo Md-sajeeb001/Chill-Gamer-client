@@ -4,15 +4,10 @@ import imgThree from "../assets/h3-gallery-img-4.jpg";
 import imgFour from "../assets/h4-gallery-img-2.jpg";
 import imgFive from "../assets/h5-gallery-img-6.jpg";
 import imgSix from "../assets/h6-gallery-img-5.jpg";
-// import { FaArrowLeftLong } from "react-icons/fa6";
-// import { FaArrowRightLong } from "react-icons/fa6";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/scrollbar";
-// import "./styles.css";
 import { Scrollbar } from "swiper/modules";
-import Heading from "../Shared/Heading";
 
 const Banner = () => {
   return (
@@ -21,17 +16,15 @@ const Banner = () => {
         hide: true,
       }}
       modules={[Scrollbar]}
-      className="mySwiper sm:h-[500px] mt-24 w-full"
+      className="mySwiper lg:h-[500px] h-[300px] sm:mt-24 mt-20 w-full"
     >
-      <SwiperSlide className="w-full">
+      <SwiperSlide className="w-full h-full">
         <img src={imgTwo} className="w-full h-full" alt="" />
       </SwiperSlide>
-      <div>
-        <SwiperSlide className="w-full">
-          <img src={imgOne} className="w-full h-full" alt="" />
-        </SwiperSlide>
-        <Heading></Heading>
-      </div>
+
+      <SwiperSlide className="w-full">
+        <img src={imgOne} className="w-full h-full" alt="" />
+      </SwiperSlide>
 
       <SwiperSlide className="w-full">
         <img src={imgThree} className="w-full h-full" alt="" />

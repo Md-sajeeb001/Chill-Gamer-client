@@ -60,20 +60,20 @@ const ReviewDetails = () => {
           />
         </figure>
         <div className="sm:w-1/2 lg:px-10 md:px-5 ">
-          <div className="w-full flex items-center justify-center text-center flex-col sm:space-y-6 space-y-3 py-3 sm:py-0 sm:pt-6">
-            <h2 className="card-title">Game Name: {Gamename}</h2>
-            <p className="text-sm text-slate-400">Description: {description}</p>
-            <p>Publishing: {publishing}</p>
-            <p>Status: {select}</p>
+          <div className="w-full  sm:space-y-6 space-y-3 py-3 sm:py-0 sm:pt-6">
+            <h2 className="card-title text-5xl font-bold">Game: {Gamename}</h2>
+            <p className="text-sm text-slate-600">{description}</p>
+            <p className="text-lg font-semibold">Publishing: {publishing}</p>
+            <p className="text-lg font-semibold">Status: {select}</p>
             <div className="divider"></div>
             <div>
-              <i>Name: {name}</i> <br />
-              <p className="flex items-center justify-center gap-3">
+              <i className="text-lg font-semibold"> Name: {name}</i> <br />
+              <p className="flex items-center gap-3">
                 <span>{rating}</span>
                 <MdOutlineStar></MdOutlineStar>
               </p>
             </div>
-            <div className="card-actions justify-end">
+            <div className="card-actions">
               <Link
                 onClick={handelAddWishList}
                 className="btn bg-white text-black hover:text-white"

@@ -13,7 +13,8 @@ const About = () => {
           delaySpeed={1000}
         />
       </h2>
-      <div>
+
+      <div className="">
         <div className="sm:flex gap-8 pt-10">
           <div className="w-1/2">
             <h4 className="text-lg font-bold">Introduction</h4>

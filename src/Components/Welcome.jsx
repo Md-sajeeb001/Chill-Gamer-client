@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import welcome from "../assets/welcome.png";
 
 const Welcome = () => {
@@ -18,9 +19,12 @@ const Welcome = () => {
           of all ages. Step into the Robot Cave and explore a world where
           machines come alive!
         </p>
-        <button className="btn w-full bg-white text-black hover:text-white">
+        <Link
+          to="/allReviews"
+          className="btn w-full bg-white text-black hover:text-white"
+        >
           EXPLORE
-        </button>
+        </Link>
       </div>
       <div className="lg:w-1/2 sm:h-[500px] h-[300px]">
         <img src={welcome} className="w-full h-full" alt="" />

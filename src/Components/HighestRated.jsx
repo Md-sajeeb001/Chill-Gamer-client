@@ -4,7 +4,7 @@ import HighestRatedCard from "./HighestRatedCard";
 /* eslint-disable react/prop-types */
 const HighestRated = ({ lodedData }) => {
   return (
-    <div>
+    <div className="lg:py-14 py-4">
       <h2 className="text-3xl font-bold text-center pt-10 underline">
         <Typewriter
           words={["Highest Rated Game"]}
