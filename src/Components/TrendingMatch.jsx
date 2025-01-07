@@ -11,8 +11,8 @@ import { Link } from "react-router-dom";
 
 const TrendingMatch = () => {
   return (
-    <div className="py-14">
-      <h2 className="text-3xl font-bold text-center pt-10 underline">
+    <div className="lg:py-10 md:py-4">
+      <h2 className="text-3xl font-bold text-center underline">
         <Typewriter
           words={["TRENDING MATCHES"]}
           loop={5}

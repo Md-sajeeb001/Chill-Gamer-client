@@ -11,33 +11,6 @@ const WatchList = () => {
   const WatchListData = datas?.filter((data) => data?.email == user?.email);
 
   return (
-    // <div className="pt-36 pb-12">
-    //   <div className="overflow-x-auto">
-    //     <table className="table">
-    //       {/* head */}
-    //       <thead>
-    //         <tr>
-    //           <th>Serial</th>
-    //           <th>Name</th>
-    //           <th>Game Name</th>
-    //           <th>Rating</th>
-    //           <th>Action</th>
-    //         </tr>
-    //       </thead>
-    //       <tbody>
-    //         {WatchListData.map((data, index) => (
-    //           <WatchListTabel
-    //             key={data._id}
-    //             data={data}
-    //             setDatas={setDatas}
-    //             datas={datas}
-    //             index={index}
-    //           ></WatchListTabel>
-    //         ))}
-    //       </tbody>
-    //     </table>
-    //   </div>
-    // </div>
 
     <section className="container px-4 mx-auto pt-36 pb-12">
       <div className="flex items-center gap-x-3">
@@ -85,13 +58,6 @@ const WatchList = () => {
                       className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
                     >
                       Rating
-                    </th>
-
-                    <th
-                      scope="col"
-                      className="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500"
-                    >
-                      Action
                     </th>
                   </tr>
                 </thead>

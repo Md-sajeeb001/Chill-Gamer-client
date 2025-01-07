@@ -62,7 +62,7 @@ const AddReview = () => {
   };
 
   return (
-    <div className="pt-36 pb-12">
+    <div className="pt-36 pb-12 lg:px-0 px-6">
       <div className="card bg-base-100 w-full max-w-4xl mx-auto shrink-0 shadow-2xl">
         <h2 className="text-3xl font-bold text-center pt-8 underline">
           Add New Review
@@ -189,7 +189,7 @@ const AddReview = () => {
 
           <div className="form-control w-full mt-6">
             <button className="btn bg-white text-black hover:text-white">
-              Submit
+              Add Review
             </button>
           </div>
         </form>

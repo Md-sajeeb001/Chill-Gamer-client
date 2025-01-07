@@ -24,7 +24,7 @@ const AllReview = () => {
   };
 
   return (
-    <div className="pt-36 pb-12">
+    <div className="pt-36 pb-12 sm:px-6 px-2">
       <div className="dropdown mb-4">
         <div tabIndex={0} role="button" className="btn m-1">
           {sort ? `Sort By ${sort}` : "Sort By"}

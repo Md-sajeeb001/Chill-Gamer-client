@@ -2,8 +2,8 @@ import { Typewriter } from "react-simple-typewriter";
 
 const About = () => {
   return (
-    <div className="py-14">
-      <h2 className="text-3xl font-bold text-center pt-10 underline">
+    <div className="lg:py-12 py-8">
+      <h2 className="text-3xl font-bold text-center underline">
         <Typewriter
           words={["About Chill Gamer"]}
           loop={5}
@@ -16,7 +16,7 @@ const About = () => {
 
       <div className="">
         <div className="sm:flex gap-8 pt-10">
-          <div className="w-1/2">
+          <div className="sm:w-1/2">
             <h4 className="text-lg font-bold">Introduction</h4>
             <p className="text-sm">
               <span className="italic font-bold">
@@ -30,7 +30,7 @@ const About = () => {
               the journey at your own pace.
             </p>
           </div>
-          <div className="w-1/2">
+          <div className="sm:w-1/2">
             <h4 className="text-lg font-bold">Our Mission</h4>
             <p className="text-sm">
               <span className="italic font-bold">
@@ -46,7 +46,7 @@ const About = () => {
         </div>
 
         <div className="sm:flex gap-8 pt-10">
-          <div className="w-1/2">
+          <div className="sm:w-1/2">
             <h4 className="text-lg font-bold">Why Choose Chill Gamer?</h4>
             <span className="italic font-bold">
               Whether you’re a casual gamer or a seasoned pro, Chill Gamer is
@@ -61,7 +61,7 @@ const About = () => {
               </li>
             </ol>
           </div>
-          <div className="w-1/2">
+          <div className="sm:w-1/2">
             <h4 className="text-lg font-bold">What We Offer</h4>
             <ol className="text-sm">
               <li>
@@ -83,7 +83,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="w-1/2 mx-auto pt-10">
+        <div className="sm:w-1/2 mx-auto pt-10">
           <h4 className="text-lg font-bold"> Our Vision</h4>
           <p className="text-sm">
             <span className="italic font-bold">

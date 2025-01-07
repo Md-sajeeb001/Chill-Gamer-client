@@ -4,6 +4,7 @@ import { GrUpdate } from "react-icons/gr";
 import { AiOutlineDelete } from "react-icons/ai";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const ReviewTabel = ({ data, setDatas, datas }) => {
   const { _id, Gamename, email, thumbnail, name, description, rating } = data;
@@ -19,23 +20,19 @@ const ReviewTabel = ({ data, setDatas, datas }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://chill-gamer-server-zeta-liart.vercel.app/gameReviews/${id}`,
-          {
-            method: "DELETE",
-          }
-        )
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            if (data.deletedCount) {
+        axios
+          .delete(
+            `https://chill-gamer-server-zeta-liart.vercel.app/gameReviews/${id}`
+          )
+          .then((res) => {
+            if (res.data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",
                 text: "Your Review Game has been deleted.",
                 icon: "success",
               });
             }
-            const remainingReviews = datas.filter((data) => data._id !== id);
+            const remainingReviews = datas?.filter((data) => data._id !== id);
             setDatas(remainingReviews);
           });
       }
@@ -60,26 +57,28 @@ const ReviewTabel = ({ data, setDatas, datas }) => {
       <td>
         {email}
         <br />
-        <span className="badge badge-ghost badge-sm">{description}</span>
+        <span className="badge badge-ghost badge-sm">
+          {description.substring(0, 100)}....
+        </span>
       </td>
       <td className="flex items-center gap-1">
         <p>{rating}</p>
         <MdOutlineStar></MdOutlineStar>
       </td>
-      <th>
+      <td>
         <Link
           to={`/updateReview/${_id}`}
           className="btn btn-ghost btn-sm text-lg"
         >
           <GrUpdate></GrUpdate>
         </Link>
-        <button
+        <Link
           onClick={() => handelRemove(_id)}
           className="btn btn-ghost btn-sm text-xl"
         >
           <AiOutlineDelete></AiOutlineDelete>
-        </button>
-      </th>
+        </Link>
+      </td>
     </tr>
   );
 };

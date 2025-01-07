@@ -3,8 +3,8 @@ import welcome from "../assets/welcome.png";
 
 const Welcome = () => {
   return (
-    <div className="lg:flex lg:justify-center bg-black rounded-xl p-6 gap-5">
-      <div className="lg:w-1/2 space-y-6">
+    <div className="lg:flex lg:justify-center bg-gray-800 rounded-md my-20 px-6 gap-5">
+      <div className="lg:w-1/2 space-y-6 ">
         <h1 className="sm:text-7xl text-3xl text-center font-bold text-white ">
           WELCOME TO <br /> ROBOT CAVE!
         </h1>

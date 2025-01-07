@@ -5,6 +5,7 @@ import TrendingMatch from "../Components/TrendingMatch";
 import Welcome from "../Components/Welcome";
 import About from "../Components/About";
 import Blogs from "./Blogs";
+import ContactMe from "../Components/ContactMe";
 
 const Home = () => {
   const lodedData = useLoaderData();
@@ -29,6 +30,9 @@ const Home = () => {
         </div>
         <div className="pt-16 pb-8">
           <Welcome></Welcome>
+        </div>
+        <div>
+          <ContactMe></ContactMe>
         </div>
       </div>
     </div>

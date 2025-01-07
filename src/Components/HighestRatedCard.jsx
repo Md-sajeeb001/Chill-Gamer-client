@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const HighestRatedCard = ({ data }) => {
   const { _id, description, thumbnail, Gamename, publishing } = data;
   return (
-    <div className="card card-compact bg-base-100  shadow-xl">
+    <div className="card card-compact bg-base-100 rounded-md shadow-xl">
       <figure className="w-full h-[200px]">
         <img src={thumbnail} alt="Game" className="w-full h-full" />
       </figure>

@@ -25,7 +25,7 @@ const BlogCart = ({ blog }) => {
           </p>
           <div className="flex justify-between items-center text-white text-xs">
             <span>September 17, 2021</span>
-            <span className="bg-orange-600 p-3 rounded-md">by {author}</span>
+            <span className="bg-red-600 p-3 rounded-md">by {author}</span>
           </div>
         </div>
       </div>

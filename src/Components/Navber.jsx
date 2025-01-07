@@ -60,9 +60,9 @@ const Navber = () => {
 
   return (
     <div className="navbar text-black fixed top-0 z-50 mb-20 sm:px-8 px-3 py-4 border-b bg-white">
-      <div className="navbar-start">
+      <div className="navbar-start sm:w-1/2">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -86,7 +86,6 @@ const Navber = () => {
           </ul>
         </div>
         <Link className="flex items-center gap-2" to="/">
-          {/* <img className="w-12" src={logo} alt="" /> */}
           <div className="w-16">
             <Lottie animationData={logo} />
           </div>
@@ -94,11 +93,11 @@ const Navber = () => {
         </Link>
       </div>
 
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden lg:flex w-1/2">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
 
-      <div className="navbar-end">
+      <div className="navbar-end w-[30%] sm:w-1/2">
         {user ? (
           <div className="flex items-center sm:gap-3">
             <div className="dropdown dropdown-end">
@@ -131,16 +130,14 @@ const Navber = () => {
                 </li>
                 <li>
                   <button className="" onClick={handelLogOut}>
-                    <Link className="bg-accent border-none outline-none">
                       Log Out
-                    </Link>
                   </button>
                 </li>
               </ul>
             </div>
             <div>
               <button className="sm:block hidden" onClick={handelLogOut}>
-                <Link className="btn bg-accent border-none outline-none">
+                <Link className="btn ">
                   Log Out
                 </Link>
               </button>
@@ -151,7 +148,7 @@ const Navber = () => {
             <button>
               <Link
                 to="/signup"
-                className="btn bg-accent text-white border-none outline-none"
+                className="btn text-white border-none outline-none"
               >
                 Sign Up
               </Link>
@@ -159,7 +156,7 @@ const Navber = () => {
             <button>
               <Link
                 to="/signin"
-                className="btn bg-accent text-white border-none outline-none"
+                className="btn text-white border-none outline-none"
               >
                 Sign in
               </Link>

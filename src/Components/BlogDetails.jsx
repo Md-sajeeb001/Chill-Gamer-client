@@ -17,8 +17,8 @@ const BlogDetails = () => {
   const { content, category, date, author, title, images, main_img } = blog;
 
   return (
-    <div className="pt-36 pb-12">
-      <div className="max-w-6xl mx-auto rounded-lg shadow-md overflow-hidden">
+    <div className="pt-36  pb-12 px-6">
+      <div className="max-w-6xl mx-auto rounded-md shadow-md overflow-hidden">
         <div className="relative">
           <img
             src={main_img}
@@ -35,10 +35,10 @@ const BlogDetails = () => {
           <p className="text-gray-400 text-sm mb-4">{content}</p>
           <div className="flex justify-between items-center text-white text-xs">
             {/* <span>{format(new Date(date), 'PPP')}</span> */}
-            <span className="bg-orange-600 p-3 rounded-md">by {author}</span>
+            <span className="bg-red-600 p-3 rounded-md">by {author}</span>
           </div>
         </div>
-        <div className="flex items-center gap-5 p-4">
+        <div className="flex flex-wrap items-center gap-5 p-4">
           {images?.map((img, idx) => (
             <img className="w-40" key={idx} src={img}></img>
           ))}
