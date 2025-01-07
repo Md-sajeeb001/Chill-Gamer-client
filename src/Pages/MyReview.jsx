@@ -11,7 +11,7 @@ const MyReview = () => {
   const emailData = datas?.filter((data) => data?.email == user?.email);
 
   return (
-    <div className="">
+    <div className="pt-36 p-12">
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

@@ -62,136 +62,138 @@ const AddReview = () => {
   };
 
   return (
-    <div className="card bg-base-100 w-full max-w-4xl mx-auto shrink-0 shadow-2xl">
-      <h2 className="text-3xl font-bold text-center pt-8 underline">
-        Add New Review
-      </h2>
-      <form onSubmit={handelAddReview} className="card-body">
-        {/* row 1 */}
-        <div className="flex items-center gap-4">
-          <div className="form-control w-1/2">
-            <label className="label">
-              <span className="label-text">Name</span>
-            </label>
-            <input
-              defaultValue={displayName}
-              readOnly={displayName}
-              name="name"
-              type="name"
-              placeholder="name"
-              className="input input-bordered w-full"
-              required
-            />
+    <div className="pt-36 pb-12">
+      <div className="card bg-base-100 w-full max-w-4xl mx-auto shrink-0 shadow-2xl">
+        <h2 className="text-3xl font-bold text-center pt-8 underline">
+          Add New Review
+        </h2>
+        <form onSubmit={handelAddReview} className="card-body">
+          {/* row 1 */}
+          <div className="flex items-center gap-4">
+            <div className="form-control w-1/2">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                defaultValue={displayName}
+                readOnly={displayName}
+                name="name"
+                type="name"
+                placeholder="name"
+                className="input input-bordered w-full"
+                required
+              />
+            </div>
+            <div className="form-control w-1/2">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+              <input
+                defaultValue={email}
+                readOnly={email}
+                name="email"
+                type="email"
+                placeholder="email"
+                className="input input-bordered w-full"
+                required
+              />
+            </div>
           </div>
-          <div className="form-control w-1/2">
-            <label className="label">
-              <span className="label-text">Email</span>
-            </label>
-            <input
-              defaultValue={email}
-              readOnly={email}
-              name="email"
-              type="email"
-              placeholder="email"
-              className="input input-bordered w-full"
-              required
-            />
-          </div>
-        </div>
-        {/* row 2 */}
-        <div className="flex items-center gap-4">
-          <div className="form-control w-1/2">
-            <label className="label">
-              <span className="label-text">Game Name</span>
-            </label>
-            <input
-              name="Gamename"
-              type="Gamename"
-              placeholder="Gamename"
-              className="input input-bordered w-full"
-              required
-            />
-          </div>
+          {/* row 2 */}
+          <div className="flex items-center gap-4">
+            <div className="form-control w-1/2">
+              <label className="label">
+                <span className="label-text">Game Name</span>
+              </label>
+              <input
+                name="Gamename"
+                type="Gamename"
+                placeholder="Gamename"
+                className="input input-bordered w-full"
+                required
+              />
+            </div>
 
-          <div className="form-control w-1/2">
-            <label className="label">
-              <span className="label-text">Rating</span>
-            </label>
-            <input
-              name="rating"
-              type="rating"
-              placeholder="rating"
-              className="input input-bordered w-full"
-              required
-            />
+            <div className="form-control w-1/2">
+              <label className="label">
+                <span className="label-text">Rating</span>
+              </label>
+              <input
+                name="rating"
+                type="rating"
+                placeholder="rating"
+                className="input input-bordered w-full"
+                required
+              />
+            </div>
           </div>
-        </div>
-        {/* row 3 */}
-        <div className="flex items-center gap-4">
-          <div className="form-control w-1/2">
-            <label className="label">
-              <span className="label-text">Publishing year</span>
-            </label>
-            <DatePicker
-              name="publishing"
-              type="Publishing "
-              placeholder="Publishing"
-              className="input input-bordered w-full"
-              required
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-            />
-          </div>
+          {/* row 3 */}
+          <div className="flex items-center gap-4">
+            <div className="form-control w-1/2">
+              <label className="label">
+                <span className="label-text">Publishing year</span>
+              </label>
+              <DatePicker
+                name="publishing"
+                type="Publishing "
+                placeholder="Publishing"
+                className="input input-bordered w-full"
+                required
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+              />
+            </div>
 
-          <div className="form-control w-1/2">
-            <label className="label">
-              <span className="label-text">Genres</span>
-            </label>
+            <div className="form-control w-1/2">
+              <label className="label">
+                <span className="label-text">Genres</span>
+              </label>
 
-            <select name="select" className="input input-bordered w-full">
-              <option>Adventure</option>
-              <option>RPG (Role-Playing Game)</option>
-              <option>Action</option>
-            </select>
+              <select name="select" className="input input-bordered w-full">
+                <option>Adventure</option>
+                <option>RPG (Role-Playing Game)</option>
+                <option>Action</option>
+              </select>
+            </div>
           </div>
-        </div>
-        {/* row 4 */}
-        <div className="flex items-center gap-4">
+          {/* row 4 */}
+          <div className="flex items-center gap-4">
+            <div className="form-control w-full">
+              <label className="label">
+                <span className="label-text">Thumbnail Url</span>
+              </label>
+              <input
+                name="thumbnail"
+                type="Thumbnail"
+                placeholder="Thumbnail Url"
+                className="input input-bordered w-full"
+                required
+              />
+            </div>
+          </div>
+          {/* row 5 */}
           <div className="form-control w-full">
             <label className="label">
-              <span className="label-text">Thumbnail Url</span>
+              <span className="label-text">Description </span>
             </label>
-            <input
-              name="thumbnail"
-              type="Thumbnail"
-              placeholder="Thumbnail Url"
+            <textarea
+              name="description"
+              type="text"
+              rows={50}
+              cols={50}
+              placeholder="description "
               className="input input-bordered w-full"
               required
             />
           </div>
-        </div>
-        {/* row 5 */}
-        <div className="form-control w-full">
-          <label className="label">
-            <span className="label-text">Description </span>
-          </label>
-          <textarea
-            name="description"
-            type="text"
-            rows={50}
-            cols={50}
-            placeholder="description "
-            className="input input-bordered w-full"
-            required
-          />
-        </div>
 
-        <div className="form-control w-full mt-6">
-          <button className="btn bg-white text-black hover:text-white">
-            Submit
-          </button>
-        </div>
-      </form>
+          <div className="form-control w-full mt-6">
+            <button className="btn bg-white text-black hover:text-white">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

@@ -143,91 +143,97 @@ const SignUp = () => {
   };
 
   return (
-    <div className="card bg-base-100 w-full max-w-2xl mx-auto shrink-0 shadow-2xl">
-      <h2 className="text-3xl font-bold text-center pt-4">SignUp Now!</h2>
-      <form onSubmit={handelSignUp} className="card-body">
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Name</span>
-          </label>
-          <input
-            name="name"
-            type="Name"
-            placeholder="Name"
-            className="input input-bordered"
-            required
-          />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Email</span>
-          </label>
-          <input
-            name="email"
-            type="email"
-            placeholder="email"
-            className="input input-bordered"
-            required
-          />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Photo Url</span>
-          </label>
-          <input
-            name="photo"
-            type="photo"
-            placeholder="photo url"
-            className="input input-bordered"
-            required
-          />
-        </div>
-        <div className="form-control relative">
-          <label className="label">
-            <span className="label-text">Password</span>
-          </label>
-          <input
-            name="password"
-            type={showPass ? "text" : "password"}
-            placeholder="password"
-            className="input input-bordered"
-            required
-          />
-          <button
-            type="button"
-            onClick={() => setShowPass(!showPass)}
-            className="absolute right-8 top-12 text-2xl "
-          >
-            {showPass ? <FaRegEyeSlash></FaRegEyeSlash> : <FaRegEye></FaRegEye>}
-          </button>
-        </div>
-        <div className="form-control">
-          <label className="label justify-start gap-2 cursor-pointer">
-            <input name="checkbox" type="checkbox" className="checkbox" />
-            <span className="label-text">accept terms and condition</span>
-          </label>
-        </div>
-        <div className="form-control mt-6 space-y-3">
-          <button className="btn bg-white text-black hover:text-white">
-            <FaUser></FaUser> Sign Up or Register
-          </button>
-          <button
-            onClick={handelSignGoogle}
-            className="btn w-full bg-white text-black hover:text-white"
-          >
-            <span className="text-xl">
-              <FcGoogle></FcGoogle>
-            </span>{" "}
-            Sign Up With Google
-          </button>
-        </div>
-        <p className="text-center py-5">
-          Already Have An Account?{" "}
-          <Link className="hover:text-red-500 underline" to="/signin">
-            Sign In
-          </Link>
-        </p>
-      </form>
+    <div className="pt-36 pb-12">
+      <div className="card bg-base-100 w-full max-w-2xl mx-auto shrink-0 shadow-2xl">
+        <h2 className="text-3xl font-bold text-center pt-4">SignUp Now!</h2>
+        <form onSubmit={handelSignUp} className="card-body">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Name</span>
+            </label>
+            <input
+              name="name"
+              type="Name"
+              placeholder="Name"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Email</span>
+            </label>
+            <input
+              name="email"
+              type="email"
+              placeholder="email"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Photo Url</span>
+            </label>
+            <input
+              name="photo"
+              type="photo"
+              placeholder="photo url"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control relative">
+            <label className="label">
+              <span className="label-text">Password</span>
+            </label>
+            <input
+              name="password"
+              type={showPass ? "text" : "password"}
+              placeholder="password"
+              className="input input-bordered"
+              required
+            />
+            <button
+              type="button"
+              onClick={() => setShowPass(!showPass)}
+              className="absolute right-8 top-12 text-2xl "
+            >
+              {showPass ? (
+                <FaRegEyeSlash></FaRegEyeSlash>
+              ) : (
+                <FaRegEye></FaRegEye>
+              )}
+            </button>
+          </div>
+          <div className="form-control">
+            <label className="label justify-start gap-2 cursor-pointer">
+              <input name="checkbox" type="checkbox" className="checkbox" />
+              <span className="label-text">accept terms and condition</span>
+            </label>
+          </div>
+          <div className="form-control mt-6 space-y-3">
+            <button className="btn bg-white text-black hover:text-white">
+              <FaUser></FaUser> Sign Up or Register
+            </button>
+            <button
+              onClick={handelSignGoogle}
+              className="btn w-full bg-white text-black hover:text-white"
+            >
+              <span className="text-xl">
+                <FcGoogle></FcGoogle>
+              </span>{" "}
+              Sign Up With Google
+            </button>
+          </div>
+          <p className="text-center py-5">
+            Already Have An Account?{" "}
+            <Link className="hover:text-red-500 underline" to="/signin">
+              Sign In
+            </Link>
+          </p>
+        </form>
+      </div>
     </div>
   );
 };

@@ -18,15 +18,19 @@ const Navber = () => {
       <li>
         <NavLink to="/allReviews">All Reviews</NavLink>
       </li>
-      <li>
-        <NavLink to="/addReview">Add Review</NavLink>
-      </li>
-      <li>
-        <NavLink to="/myReviews">My Reviews</NavLink>
-      </li>
-      <li>
-        <NavLink to="/myWatchlist">Game WatchList</NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to="/addReview">Add Review</NavLink>
+          </li>
+          <li>
+            <NavLink to="/myReviews">My Reviews</NavLink>
+          </li>
+          <li>
+            <NavLink to="/myWatchlist">Game WatchList</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 
@@ -55,7 +59,7 @@ const Navber = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 sm:px-8 px-3 py-4 border-b ">
+    <div className="navbar text-black fixed top-0 z-50 mb-20 sm:px-8 px-3 py-4 border-b bg-white">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -127,26 +131,36 @@ const Navber = () => {
                 </li>
                 <li>
                   <button className="" onClick={handelLogOut}>
-                    <Link className="">Log Out</Link>
+                    <Link className="bg-accent border-none outline-none">
+                      Log Out
+                    </Link>
                   </button>
                 </li>
               </ul>
             </div>
             <div>
               <button className="sm:block hidden" onClick={handelLogOut}>
-                <Link className="btn">Log Out</Link>
+                <Link className="btn bg-accent border-none outline-none">
+                  Log Out
+                </Link>
               </button>
             </div>
           </div>
         ) : (
           <div className="space-x-4">
             <button>
-              <Link to="/signup" className="btn ">
+              <Link
+                to="/signup"
+                className="btn bg-accent text-white border-none outline-none"
+              >
                 Sign Up
               </Link>
             </button>
             <button>
-              <Link to="/signin" className="btn ">
+              <Link
+                to="/signin"
+                className="btn bg-accent text-white border-none outline-none"
+              >
                 Sign in
               </Link>
             </button>

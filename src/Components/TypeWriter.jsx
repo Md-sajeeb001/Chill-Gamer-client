@@ -2,18 +2,15 @@ import { Typewriter } from "react-simple-typewriter";
 const TypeWriter = () => {
   return (
     <div>
-      <h1 style={{ margin: "auto 0", fontWeight: "normal" }}>
-        <span style={{ color: "red", fontWeight: "bold" }}>
-          <Typewriter
-            words={["HIGHEST RATED GAME"]}
-            loop={5}
-            cursor
-            cursorStyle="_"
-            typeSpeed={70}
-            deleteSpeed={50}
-            delaySpeed={1000}
-          />
-        </span>
+      <h1>
+        <Typewriter
+          words={["HIGHEST RATED GAME"]}
+          loop={5}
+          cursor
+          typeSpeed={50}
+          deleteSpeed={30}
+          delaySpeed={1000}
+        />
       </h1>
     </div>
   );

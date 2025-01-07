@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-import { MdOutlineStar } from "react-icons/md";
 
 const AllCard = ({ data }) => {
-  const { _id, description, thumbnail, Gamename, publishing, rating } = data;
+  const { _id, description, thumbnail, Gamename, publishing } = data;
 
   return (
     <div className="card bg-base-100  shadow-xl">
@@ -12,18 +11,12 @@ const AllCard = ({ data }) => {
       </figure>
       <div className="px-4 py-4 space-y-3 flex flex-col">
         <h2 className="card-title">{Gamename}</h2>
-        <p style={{color: 'black'}} className="text-sm text-slate-400">{description}</p>
-        <p className="text-sm text-slate-500 flex items-center gap-2">
-          <span>{rating}</span>
-          <span className="">
-            <MdOutlineStar></MdOutlineStar>
-          </span>
-        </p>
-        <p className="text-sm text-slate-400">Publishing: {publishing}</p>
+        <p className="text-sm text-slate-600">{description.substring(0, 90)}.....</p>
+        <p className="text-sm text-slate-600">Publishing: {publishing}</p>
         <div className="card-actions flex-grow">
           <Link
             to={`/reviewDetails/${_id}`}
-            className="btn bg-white text-black hover:text-white flex-grow"
+            className="btn flex-grow"
           >
             Explore Details
           </Link>

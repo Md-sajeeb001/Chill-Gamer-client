@@ -10,7 +10,7 @@ const WatchList = () => {
   const WatchListData = loderData?.filter((data) => data?.email == user?.email);
 
   return (
-    <div>
+    <div className="pt-36 pb-12">
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
