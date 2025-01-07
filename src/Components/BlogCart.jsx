@@ -3,7 +3,6 @@
 import { Link } from "react-router-dom";
 
 const BlogCart = ({ blog }) => {
-  // console.log(blog)
   const { _id, content, author, title, main_img } = blog;
   return (
     <Link to={`/blogDetails/${_id}`}>

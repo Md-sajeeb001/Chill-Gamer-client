@@ -10,11 +10,10 @@ const BlogDetails = () => {
 
   axios.get("http://localhost:5000/blogs").then((res) => {
     const datas = res.data;
-    // console.log(datas);
     const item = datas.find((data) => data._id == id);
     setBlog(item);
   });
-  const { content, category, date, author, title, images, main_img } = blog;
+  const { content, category, author, title, images, main_img } = blog;
 
   return (
     <div className="pt-36  pb-12 px-6">

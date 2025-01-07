@@ -4,7 +4,6 @@ import { useState } from "react";
 
 const AllReview = () => {
   const loderData = useLoaderData();
-  console.log(loderData);
   const [reviews, setReviews] = useState(loderData);
 
   const [sort, setSort] = useState("");

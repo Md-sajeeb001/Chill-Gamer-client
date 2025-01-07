@@ -37,7 +37,6 @@ const AddReview = () => {
       thumbnail,
       Gamename,
     };
-    console.log(newReview);
 
     fetch("https://chill-gamer-server-zeta-liart.vercel.app/gameReviews", {
       method: "POST",
@@ -48,7 +47,6 @@ const AddReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "Success",

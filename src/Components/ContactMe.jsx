@@ -15,7 +15,6 @@ const ContactMe = () => {
       })
       .then(
         (res) => {
-          console.log("SUCCESS!");
           if (res) {
             toast.success("check you mail");
           }
