@@ -26,25 +26,27 @@ Welcome to Chill Gamer – the ultimate space for relaxed gaming enthusiasts! Wh
 
 
 ### ⚙️ How to Run the Project Locally
-1️⃣ Clone the Repository
+##1️⃣ Clone the Repository
 
 git clone https://github.com/your-username/chill-gamer.git
 cd chill-gamer
-2️⃣ Install Dependencies
-# Frontend
+
+## 2️⃣ Install Dependencies
+### Frontend
 cd client
 `npm install`
 
-# Backend
+### Backend
 cd server
 `npm install`
+<br/>
 3️⃣ Setup Environment Variables
 Create a `.env` file in the root directory and add:
 
-# plaintext
-`FIREBASE_API_KEY=your_firebase_api_key`
-`FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain`
-`FIREBASE_PROJECT_ID=your_firebase_project_id`
+### plaintext
+`FIREBASE_API_KEY=your_firebase_api_key` <br/>
+`FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain` <br/>
+`FIREBASE_PROJECT_ID=your_firebase_project_id` <br/>
 
 4️⃣ Run the Project
 Start Backend Server
