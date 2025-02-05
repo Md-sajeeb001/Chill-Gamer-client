@@ -28,7 +28,7 @@ Welcome to Chill Gamer – the ultimate space for relaxed gaming enthusiasts! Wh
 ### ⚙️ How to Run the Project Locally
 ## 1️⃣ Clone the Repository
 
-git clone https://github.com/your-username/chill-gamer.git
+git clone https://github.com/Md-sajeeb001/Chill-Gamer-client.git
 cd chill-gamer
 
 ## 2️⃣ Install Dependencies
