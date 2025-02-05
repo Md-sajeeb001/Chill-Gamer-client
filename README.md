@@ -42,6 +42,7 @@ cd server
 <br/>
 ## 3️⃣ Setup Environment Variables
 Create a `.env` file in the root directory and add:
+<br/>
 `FIREBASE_API_KEY=your_firebase_api_key` <br/>
 `FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain` <br/>
 `FIREBASE_PROJECT_ID=your_firebase_project_id` <br/>
@@ -49,7 +50,7 @@ Create a `.env` file in the root directory and add:
 ## 4️⃣ Run the Project
 Start Backend Server
 cd server
-`npm run dev`
+`nodemon index.js`
 
 Start Frontend Server
 cd client
