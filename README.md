@@ -52,7 +52,7 @@ Start Backend Server
 cd server
 `nodemon index.js`
 
-Start Frontend Server
+Start Frontend 
 cd client
 `npm run dev`
 Visit `http://localhost:8000` in your browser. 🚀
