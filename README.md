@@ -24,3 +24,34 @@ Welcome to Chill Gamer – the ultimate space for relaxed gaming enthusiasts! Wh
 - `mongoose`
 - `jsonwebtoken`
 
+
+### ⚙️ How to Run the Project Locally
+1️⃣ Clone the Repository
+
+git clone https://github.com/your-username/chill-gamer.git
+cd chill-gamer
+2️⃣ Install Dependencies
+# Frontend
+cd client
+`npm install`
+
+# Backend
+cd server
+`npm install`
+3️⃣ Setup Environment Variables
+Create a `.env` file in the root directory and add:
+
+# plaintext
+`FIREBASE_API_KEY=your_firebase_api_key`
+`FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain`
+`FIREBASE_PROJECT_ID=your_firebase_project_id`
+
+4️⃣ Run the Project
+Start Backend Server
+cd server
+`npm run dev`
+
+Start Frontend Server
+cd client
+`npm run dev`
+Visit `http://localhost:8000` in your browser. 🚀
